@@ -57,7 +57,7 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="36"/>
+                    <navigationItem key="navigationItem" title="SimpleReader" id="36"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,11 +72,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="105" id="ffc-dS-rQZ" customClass="ItemCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="105" id="ffc-dS-rQZ" customClass="ItemCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="104"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="104"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="I5r-Md-kHX">
@@ -112,6 +112,7 @@ Description</string>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="SAG-qk-4Qu" id="Vey-A7-jAM"/>
                                     <outlet property="titleLabel" destination="I5r-Md-kHX" id="edv-gS-ZmJ"/>
+                                    <segue destination="ED3-Mo-fRN" kind="push" identifier="showItemDetail" id="URG-GC-LeW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -126,6 +127,35 @@ Description</string>
             </objects>
             <point key="canvasLocation" x="934" y="64"/>
         </scene>
+        <!--Item Detail View Controller-->
+        <scene sceneID="0wc-f4-7UN">
+            <objects>
+                <viewController id="ED3-Mo-fRN" customClass="ItemDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ywl-aF-Cfb">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjh-NN-Hll">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cjh-NN-Hll" firstAttribute="top" secondItem="Ywl-aF-Cfb" secondAttribute="top" type="default" id="656-hn-3lp"/>
+                            <constraint firstItem="Cjh-NN-Hll" firstAttribute="trailing" secondItem="Ywl-aF-Cfb" secondAttribute="trailing" type="default" id="8zg-HF-Djy"/>
+                            <constraint firstItem="Cjh-NN-Hll" firstAttribute="leading" secondItem="Ywl-aF-Cfb" secondAttribute="leading" type="default" id="KKA-SP-0Sx"/>
+                            <constraint firstItem="Cjh-NN-Hll" firstAttribute="bottom" secondItem="Ywl-aF-Cfb" secondAttribute="bottom" type="default" id="w5v-nb-n1t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qs9-Ne-P33"/>
+                    <connections>
+                        <outlet property="webView" destination="Cjh-NN-Hll" id="dxe-a0-mPQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Soi-Ht-9pm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="64"/>
+        </scene>
     </scenes>
     <classes>
         <class className="ItemCell" superclassName="UITableViewCell">
@@ -133,6 +163,12 @@ Description</string>
             <relationships>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ItemDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="ItemListViewController" superclassName="UITableViewController">

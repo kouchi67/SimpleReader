@@ -24,6 +24,7 @@
 		BCE96396F0A9193C7C22B8BF /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE969446061F443D6383D55 /* ItemCell.m */; };
 		BCE96834C102A822DC5BC9A5 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE96A6AC1D990B60536D825 /* TBXML.m */; };
 		BCE96F065AAA881F6E37370C /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE96FCC6D4DBA6AF9D944A0 /* ItemListViewController.m */; };
+		FA668FE71733A9600083F0D2 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA668FE61733A9600083F0D2 /* ItemDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		BCE96A6AC1D990B60536D825 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		BCE96FCC6D4DBA6AF9D944A0 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
 		FA668FE217338DE10083F0D2 /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
+		FA668FE51733A9600083F0D2 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
+		FA668FE61733A9600083F0D2 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				BCE969446061F443D6383D55 /* ItemCell.m */,
 				BCE969050FDC3E150CD098B0 /* ItemListViewController.h */,
 				BCE96FCC6D4DBA6AF9D944A0 /* ItemListViewController.m */,
+				FA668FE51733A9600083F0D2 /* ItemDetailViewController.h */,
+				FA668FE61733A9600083F0D2 /* ItemDetailViewController.m */,
 				6D860D7D1733748400993517 /* MainStoryboard.storyboard */,
 				6D860D831733748400993517 /* MasterViewController.h */,
 				6D860D841733748400993517 /* MasterViewController.m */,
@@ -216,6 +221,7 @@
 				BCE96396F0A9193C7C22B8BF /* ItemCell.m in Sources */,
 				BCE96834C102A822DC5BC9A5 /* TBXML.m in Sources */,
 				BCE96144CCDE5E283D1879B8 /* TBXML+Dictionary.m in Sources */,
+				FA668FE71733A9600083F0D2 /* ItemDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 #import "ItemCell.h"
 #import "TBXML.h"
 #import "TBXML+Dictionary.h"
-
+#import "ItemDetailViewController.h"
 
 @implementation ItemListViewController
 {
@@ -28,11 +28,6 @@
     if (_items == nil) {
         _items = [[NSMutableArray alloc] init];
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 
     NSLog(@"%@", [_feed description]);
     if (_feed) {
@@ -47,6 +42,11 @@
                                    [self arrangeItems:data];
                                }];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)arrangeItems:(NSData *)data
@@ -70,6 +70,23 @@
     
     [self.tableView reloadData];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString *identifier = [segue identifier];
+    if ([identifier isEqualToString:@"showItemDetail"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSDictionary *item = [_items objectAtIndex:indexPath.row];
+        NSString *title = [item valueForKey:@"title"];
+        NSString *link = [item valueForKey:@"link"];
+
+        // 詳細画面のURLをセットする
+        ItemDetailViewController *viewController = [segue destinationViewController];
+        [viewController setTitle:title];
+        [viewController setLink:link];
+    }
+}
+
 
 #pragma mark - Table View
 
