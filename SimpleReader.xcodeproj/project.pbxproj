@@ -20,7 +20,10 @@
 		6D860D7F1733748400993517 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D860D7D1733748400993517 /* MainStoryboard.storyboard */; };
 		6D860D821733748400993517 /* SimpleReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D860D801733748400993517 /* SimpleReader.xcdatamodeld */; };
 		6D860D851733748400993517 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D860D841733748400993517 /* MasterViewController.m */; };
-		6D860D881733748400993517 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D860D871733748400993517 /* DetailViewController.m */; };
+		BCE96144CCDE5E283D1879B8 /* TBXML+Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE965990E05D34DC383A11D /* TBXML+Dictionary.m */; };
+		BCE96396F0A9193C7C22B8BF /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE969446061F443D6383D55 /* ItemCell.m */; };
+		BCE96834C102A822DC5BC9A5 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE96A6AC1D990B60536D825 /* TBXML.m */; };
+		BCE96F065AAA881F6E37370C /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE96FCC6D4DBA6AF9D944A0 /* ItemListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +45,14 @@
 		6D860D811733748400993517 /* SimpleReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleReader.xcdatamodel; sourceTree = "<group>"; };
 		6D860D831733748400993517 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		6D860D841733748400993517 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		6D860D861733748400993517 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		6D860D871733748400993517 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		BCE9608A33DFEE302B491B36 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		BCE9643AD7686EBDAABC7400 /* TBXML+Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+Dictionary.h"; sourceTree = "<group>"; };
+		BCE965990E05D34DC383A11D /* TBXML+Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+Dictionary.m"; sourceTree = "<group>"; };
+		BCE969050FDC3E150CD098B0 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
+		BCE969446061F443D6383D55 /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
+		BCE96A6AC1D990B60536D825 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		BCE96FCC6D4DBA6AF9D944A0 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
+		FA668FE217338DE10083F0D2 /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,13 +103,18 @@
 			children = (
 				6D860D741733748400993517 /* AppDelegate.h */,
 				6D860D751733748400993517 /* AppDelegate.m */,
+				FA668FE217338DE10083F0D2 /* ItemCell.h */,
+				BCE969446061F443D6383D55 /* ItemCell.m */,
+				BCE969050FDC3E150CD098B0 /* ItemListViewController.h */,
+				BCE96FCC6D4DBA6AF9D944A0 /* ItemListViewController.m */,
 				6D860D7D1733748400993517 /* MainStoryboard.storyboard */,
 				6D860D831733748400993517 /* MasterViewController.h */,
 				6D860D841733748400993517 /* MasterViewController.m */,
-				6D860D861733748400993517 /* DetailViewController.h */,
-				6D860D871733748400993517 /* DetailViewController.m */,
 				6D860D801733748400993517 /* SimpleReader.xcdatamodeld */,
 				6D860D6C1733748400993517 /* Supporting Files */,
+				BCE96FB7758DBC8F549FA27E /* TBXML */,
+				BCE9643AD7686EBDAABC7400 /* TBXML+Dictionary.h */,
+				BCE965990E05D34DC383A11D /* TBXML+Dictionary.m */,
 			);
 			path = SimpleReader;
 			sourceTree = "<group>";
@@ -117,6 +131,15 @@
 				6D860D7B1733748400993517 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BCE96FB7758DBC8F549FA27E /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				BCE96A6AC1D990B60536D825 /* TBXML.m */,
+				BCE9608A33DFEE302B491B36 /* TBXML.h */,
+			);
+			path = TBXML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +212,10 @@
 				6D860D761733748400993517 /* AppDelegate.m in Sources */,
 				6D860D821733748400993517 /* SimpleReader.xcdatamodeld in Sources */,
 				6D860D851733748400993517 /* MasterViewController.m in Sources */,
-				6D860D881733748400993517 /* DetailViewController.m in Sources */,
+				BCE96F065AAA881F6E37370C /* ItemListViewController.m in Sources */,
+				BCE96396F0A9193C7C22B8BF /* ItemCell.m in Sources */,
+				BCE96834C102A822DC5BC9A5 /* TBXML.m in Sources */,
+				BCE96144CCDE5E283D1879B8 /* TBXML+Dictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +338,7 @@
 				6D860D8D1733748400993517 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
