@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -79,17 +79,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="I5r-Md-kHX">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="dUz-W3-cLS"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I5r-Md-kHX">
+                                            <rect key="frame" x="10" y="10" width="280" height="40"/>
                                             <string key="text">Title
 Title</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="SAG-qk-4Qu">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SAG-qk-4Qu">
+                                            <rect key="frame" x="10" y="55" width="280" height="36"/>
                                             <string key="text">Description
 Description</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -99,13 +98,6 @@ Description</string>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="SAG-qk-4Qu" firstAttribute="centerX" secondItem="ffc-dS-rQZ" secondAttribute="centerX" type="default" id="0QE-1Q-0di"/>
-                                    <constraint firstAttribute="bottom" secondItem="SAG-qk-4Qu" secondAttribute="bottom" constant="14" id="7Ud-b3-rfF"/>
-                                    <constraint firstItem="I5r-Md-kHX" firstAttribute="top" secondItem="ffc-dS-rQZ" secondAttribute="top" constant="10" id="eNz-Ow-z6U"/>
-                                    <constraint firstItem="SAG-qk-4Qu" firstAttribute="leading" secondItem="I5r-Md-kHX" secondAttribute="leading" type="default" id="m7b-pB-aoh"/>
-                                    <constraint firstItem="SAG-qk-4Qu" firstAttribute="trailing" secondItem="I5r-Md-kHX" secondAttribute="trailing" type="default" id="nbx-JK-s18"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="SAG-qk-4Qu" id="Vey-A7-jAM"/>
                                     <outlet property="titleLabel" destination="I5r-Md-kHX" id="edv-gS-ZmJ"/>
@@ -132,17 +124,12 @@ Description</string>
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjh-NN-Hll">
+                            <webView contentMode="scaleToFill" id="Cjh-NN-Hll">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Cjh-NN-Hll" firstAttribute="top" secondItem="Ywl-aF-Cfb" secondAttribute="top" type="default" id="656-hn-3lp"/>
-                            <constraint firstItem="Cjh-NN-Hll" firstAttribute="trailing" secondItem="Ywl-aF-Cfb" secondAttribute="trailing" type="default" id="8zg-HF-Djy"/>
-                            <constraint firstItem="Cjh-NN-Hll" firstAttribute="leading" secondItem="Ywl-aF-Cfb" secondAttribute="leading" type="default" id="KKA-SP-0Sx"/>
-                            <constraint firstItem="Cjh-NN-Hll" firstAttribute="bottom" secondItem="Ywl-aF-Cfb" secondAttribute="bottom" type="default" id="w5v-nb-n1t"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qs9-Ne-P33"/>
                     <connections>
@@ -173,9 +160,6 @@ Description</string>
         </class>
         <class className="ItemListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemListViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

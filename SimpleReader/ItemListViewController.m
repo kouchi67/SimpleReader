@@ -35,6 +35,7 @@
         [self setTitle:[_feed valueForKey:@"url"]];
 
         // load開始
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         NSURL *url = [NSURL URLWithString:urlString];
         NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -60,17 +61,24 @@
         return;
     }
 
-    NSDictionary *dictionary = [TBXML dictionaryWithElement:tbxml.rootXMLElement];
-    NSLog(@"%@", dictionary);
+    // 取得したXMLをパースする
+    NSDictionary *rootElement = [TBXML dictionaryWithElement:tbxml.rootXMLElement];
+    NSLog(@"%@", rootElement);
 
-    NSDictionary *rss = [dictionary valueForKey:@"rss"];
+    NSDictionary *rss = [rootElement valueForKey:@"rss"];
     NSDictionary *channel = [rss valueForKey:@"channel"];
     NSArray *array = [channel valueForKey:@"item"];
+
+    // itemまで分解したらArrayに格納する
     for (NSDictionary *item in array) {
         [_items addObject:item];
     }
 
-    [self.tableView reloadData];
+    // UI操作はmainスレッドで行う
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        [self.tableView reloadData];
+    });
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -110,7 +118,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifier = @"Cell";
-    ItemCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    ItemCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[ItemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
 
     NSDictionary *item = [_items objectAtIndex:indexPath.row];
 
@@ -127,7 +138,8 @@
 
 @implementation NSString (FetchRSS)
 
-- (NSString *) stringByStrippingHTML {
+- (NSString *) stringByStrippingHTML
+{
     NSRange range;
     NSString *string = [self copy];
     while ((range = [string rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound) {
