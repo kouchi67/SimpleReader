@@ -31,8 +31,10 @@
 
     NSLog(@"%@", [_feed description]);
     if (_feed) {
-        // load開始
         NSString *urlString = [_feed valueForKey:@"url"];
+        [self setTitle:[_feed valueForKey:@"url"]];
+
+        // load開始
         NSURL *url = [NSURL URLWithString:urlString];
         NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -67,7 +69,7 @@
     for (NSDictionary *item in array) {
         [_items addObject:item];
     }
-    
+
     [self.tableView reloadData];
 }
 

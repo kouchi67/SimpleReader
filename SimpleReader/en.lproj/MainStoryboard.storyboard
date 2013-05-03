@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="-1" y="64"/>
         </scene>
-        <!--Master View Controller - Master-->
+        <!--Feed List View Controller - Master-->
         <scene sceneID="18">
             <objects>
-                <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="MasterViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="FeedListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,7 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SimpleReader" id="36"/>
+                    <navigationItem key="navigationItem" title="Feed" id="36"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,11 +72,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="105" id="ffc-dS-rQZ" customClass="ItemCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="105"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="ffc-dS-rQZ" customClass="ItemCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="104"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="I5r-Md-kHX">
@@ -90,9 +90,6 @@ Title</string>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="SAG-qk-4Qu">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="cdg-sz-PKR"/>
-                                            </constraints>
                                             <string key="text">Description
 Description</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -103,11 +100,11 @@ Description</string>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="SAG-qk-4Qu" firstAttribute="centerX" secondItem="ffc-dS-rQZ" secondAttribute="centerX" type="default" id="TrN-sG-hNq"/>
-                                    <constraint firstItem="SAG-qk-4Qu" firstAttribute="top" secondItem="ffc-dS-rQZ" secondAttribute="top" constant="55" id="U4Y-6s-1GL"/>
+                                    <constraint firstItem="SAG-qk-4Qu" firstAttribute="centerX" secondItem="ffc-dS-rQZ" secondAttribute="centerX" type="default" id="0QE-1Q-0di"/>
+                                    <constraint firstAttribute="bottom" secondItem="SAG-qk-4Qu" secondAttribute="bottom" constant="14" id="7Ud-b3-rfF"/>
+                                    <constraint firstItem="I5r-Md-kHX" firstAttribute="top" secondItem="ffc-dS-rQZ" secondAttribute="top" constant="10" id="eNz-Ow-z6U"/>
                                     <constraint firstItem="SAG-qk-4Qu" firstAttribute="leading" secondItem="I5r-Md-kHX" secondAttribute="leading" type="default" id="m7b-pB-aoh"/>
                                     <constraint firstItem="SAG-qk-4Qu" firstAttribute="trailing" secondItem="I5r-Md-kHX" secondAttribute="trailing" type="default" id="nbx-JK-s18"/>
-                                    <constraint firstItem="I5r-Md-kHX" firstAttribute="top" secondItem="ffc-dS-rQZ" secondAttribute="top" constant="10" id="rbn-4b-me8"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="SAG-qk-4Qu" id="Vey-A7-jAM"/>
@@ -158,6 +155,9 @@ Description</string>
         </scene>
     </scenes>
     <classes>
+        <class className="FeedListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedListViewController.h"/>
+        </class>
         <class className="ItemCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemCell.h"/>
             <relationships>
@@ -173,9 +173,6 @@ Description</string>
         </class>
         <class className="ItemListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemListViewController.h"/>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

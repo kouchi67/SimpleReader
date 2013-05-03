@@ -6,11 +6,11 @@
 //  Copyright (c) 2013年 niyaty. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "FeedListViewController.h"
 #import "ItemListViewController.h"
 
 
-@implementation MasterViewController
+@implementation FeedListViewController
 
 - (void)awakeFromNib
 {
@@ -20,10 +20,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushedAdd)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                               target:self
+                                                                               action:@selector(pushedAdd)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
@@ -143,7 +145,8 @@
     if ([[segue identifier] isEqualToString:@"showItemList"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setFeed:object];
+        ItemListViewController *viewController = [segue destinationViewController];
+        [viewController setFeed:object];
     }
 }
 
